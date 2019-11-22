@@ -1,5 +1,5 @@
 from django import forms
-from .models import Movie, Review, Genre
+from .models import Review
 
 
 class ReviewForm(forms.ModelForm):
@@ -9,6 +9,7 @@ class ReviewForm(forms.ModelForm):
 
     content = forms.CharField(
         label='리뷰 작성하기',
+        max_length=140,
         widget=forms.Textarea(
             attrs={
                 'class': 'form-control review-content',

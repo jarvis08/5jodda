@@ -1,8 +1,29 @@
-from django.db import models
-from django.urls import reverse
-from django.conf import settings
+from rest_framework import serializers
+from .models import Movie, Review
 
-# Create your models here.
+
+class MovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ('pk', 'title', 'audience', 'poster_url', 'description', 'genres')
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ('pk', 'content', 'score', 'user_id', 'movie_id')
+
+
+class MovieDetailSerializer(serializers.ModelSerializer):
+    review_set = ReviewSerializer(many=True)
+
+    class Meta:
+        model = Movie
+        fields = MovieSerializer.Meta.fields + ('review_set',)
+
+
+# 모델모델
+'''
 class Genre(models.Model):
     name = models.TextField(max_length=50)
 
@@ -32,3 +53,4 @@ class Review(models.Model):
     score = models.FloatField()
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+'''

@@ -30,6 +30,12 @@
   {% for review in reviews %}
     <p>평점: {{ review.score }}&#9;|&#9;{{ review.content }}&#9;<a href="{% url 'movies:review_delete' movie.pk review.pk %}" class="btn-sm btn-danger">삭제</a></p>
   {% endfor %}
-  <a href="" class="btn-sm btn-danger mt-5 d-block text-center">좋아요</a>
+
+  {% if request.user in movie.like_users.all %}
+    <a href="{% url 'movies:like' movie.pk %}" class="btn-sm btn-outline-danger mt-5 d-block text-center">좋아요 취소</a>
+  {% else %}
+    <a href="{% url 'movies:like' movie.pk %}" class="btn-sm btn-danger mt-5 d-block text-center">좋아요</a>
+  {% endif %}
+  
   <a href="{% url 'movies:index' %}" class="btn btn-dark d-block">목록으로</a>
 {% endblock %}
