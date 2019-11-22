@@ -1,12 +1,12 @@
 <template>
-  <div class="5jodda-index">
-    <h1>오지는 영화 추천</h1>
+  <div class="5jodda-movieinfo">
+    <h2>영화 정보</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Index',
+  name: 'MovieInfo',
 }
 </script>
 
