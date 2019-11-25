@@ -23,5 +23,6 @@ urlpatterns = [
     path('movies/', include('movies.urls')),
     path('accounts/', include('accounts.urls')),
     path('api-token-verify/', obtain_jwt_token),
-    path('api/v1/', include('movies.api_urls')),
+    path('api/v1/movies/', include('movies.api_urls')),
+    path('api/v1/users/', include('accounts.api_urls')),
 ]

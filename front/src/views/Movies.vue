@@ -1,19 +1,61 @@
 <template>
   <div class="5jodda-movie">
     <MovieRec />
-    <MovieList />
+    <MovieList :movies="movies" />
   </div>
 </template>
 
 <script>
 import MovieRec from '@/components/MovieRec'
 import MovieList from '@/components/MovieList'
+import axios from 'axios'
 
 export default {
   name: 'Movie',
   components: {
     MovieRec,
     MovieList,
+  },
+  data() {
+    return {
+      movies: [],
+      genres: [],
+    }
+  },
+  methods: {
+    getMovies() {
+      const token = this.$session.get('jwt')
+      const options = {
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      }
+      
+      axios.get('http://127.0.0.1:8000/api/v1/movies/', options)
+      .then(res => {
+        this.movies = res.data
+      })
+    },
+    getGenres() {
+      const token = this.$session.get('jwt')
+      const options = {
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      }
+      
+      axios.get('http://127.0.0.1:8000/api/v1/movies/genres/', options)
+      .then(res => {
+        res.data.forEach(element => {
+          this.genres.push(element.name)
+        });
+        console.log(this.genres)
+      })
+    },
+  },
+  mounted() {
+    this.getGenres()
+    this.getMovies()
   }
 }
 </script>
