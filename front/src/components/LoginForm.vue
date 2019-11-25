@@ -8,13 +8,14 @@
         <label for="password">Password</label>
         <input v-model="credentials.password" type="password" id="password" class="form-control" placeholder="비밀번호를 입력하세요.">
       </div>
-    <!-- <button @click="login()" class="btn btn-primary">Log-in</button> -->
+    <button @click="login" class="btn btn-primary">Log-in</button>
   </div>
 </template>
 
 <script>
-// import axios from 'axios'
-// import router from '@/router'
+import axios from 'axios'
+import router from '@/router'
+
 
 export default {
   name: 'LoginForm',
@@ -24,15 +25,15 @@ export default {
     }
   },
   methods: {
-    // login() {
-    //   axios.post('http://127.0.0.1:8000/api-token-auth/', this.credentials)
-    //   .then(res => {
-    //     this.$session.start()
-    //     this.$session.set('jwt', res.data.token)
-    //     router.push('/')
-    //   })
-    // }
-  },
+    login() {
+      axios.post('http://127.0.0.1:8000/api-token-verify/', this.credentials)
+      .then(res => {
+        this.$session.start()
+        this.$session.set('jwt', res.data.token)
+        router.push('/')
+      })
+    },
+  }
 }
 </script>
 

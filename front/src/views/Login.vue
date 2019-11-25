@@ -1,7 +1,7 @@
 <template>
-  <div class="5jodda-login">
+  <div class="5jodda-login col-6">
     <LoginForm />
-    <Signup />
+    <Signup class="mt-3"/>
   </div>
 </template>
 
