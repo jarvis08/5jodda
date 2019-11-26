@@ -1,15 +1,17 @@
 <template>
   <div class="5jodda-movielist">
     <h2>전체 리스트</h2>
-    <div v-for="movie in movies" :key="movie.pk">
-      <p>{{ movie.title }}</p>
+    <div class="row container">
+    <div v-for="movie in movies" :key="movie.pk" class="cal-3" >
       <div class="card border-dark m-3" style="width: 18rem;">
-        <a href="#"><img src="#" class="card-img-top"></a>
+        <a :href="`/movie/${ movie.pk }`"><img :src=movie.poster_url :alt="`${ movie.title }의 포스터`" class="card-img-top"></a>
         <div class="card-body text-center border-dark">
           <h5 class="card-title">{{ movie.title }}</h5>
           <span v-for="genre in movie.genres" :key="genre.id" class="btn-sm btn-dark">{{ findGenre(genre) }}</span>
         </div>
       </div>
+
+    </div>
 
     </div>
 
@@ -38,9 +40,8 @@ export default {
   methods: {
     findGenre(genreNum) {
 
-      const genreName = this.genres2[genreNum]
+      const genreName = this.genres2[genreNum-1]
 
-      console.log(genreName)
       return genreName
     },
     getGenres() {
@@ -56,7 +57,6 @@ export default {
         res.data.forEach(element => {
           this.genres2.push(element.name)
         });
-        console.log(this.genres2)
       })
     },
   },

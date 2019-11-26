@@ -11,7 +11,7 @@ import MovieList from '@/components/MovieList'
 import axios from 'axios'
 
 export default {
-  name: 'Movie',
+  name: 'Movies',
   components: {
     MovieRec,
     MovieList,
