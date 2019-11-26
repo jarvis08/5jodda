@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/movie">Movie</router-link> |
+      <router-link to="/movies">Movies</router-link> |
       <router-link v-if="!this.$session.get('jwt')" to="/login">Login</router-link> 
       <router-link v-if="this.$session.get('jwt')" to="/logout">Logout</router-link> |
       <router-link to="/user">MyPage</router-link> |

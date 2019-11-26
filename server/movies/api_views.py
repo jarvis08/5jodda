@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Movie, Review
-from .serializers import MovieSerializer, ReviewSerializer, MovieDetailSerializer
+from .models import Movie, Review, Genre
+from .serializers import MovieSerializer, ReviewSerializer, MovieDetailSerializer, GenreSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
@@ -13,6 +13,18 @@ def movie_index(request):
     
     if request.method == 'GET':
         serializer = MovieSerializer(movies, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        pass
+    return Response(status=405)
+
+
+@api_view(['GET'])
+def genre_index(request):
+    genres = Genre.objects.all()
+    
+    if request.method == 'GET':
+        serializer = GenreSerializer(genres, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
         pass
