@@ -22,7 +22,8 @@
       color="dark"
       dark
     >
-      <div class="d-flex align-center">
+
+      <div class="d-flex align-center ">
         <v-img
           alt="Movie Logo"
           class="shrink mr-2"
@@ -67,7 +68,7 @@
       <v-container>
         <router-view />
       </v-container>
-    </v-content> -->
+    </v-content>
   </v-app>
 </template>
 
@@ -76,12 +77,4 @@
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
