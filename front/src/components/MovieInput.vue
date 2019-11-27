@@ -3,7 +3,7 @@
     <h2>영화 생성</h2>
     <div class="form-group">
       <label for="title">영화번호</label>
-      <input v-model="Info.pk" type="text" id="moviePk" class="form-control" placeholder="영화 번호 입력하세요.">
+      <input v-model="Info.pk" type="text" id="movie_pk" class="form-control" placeholder="영화 번호 입력하세요.">
       <br>
       <label for="title">영화명</label>
       <input v-model="Info.title" type="text" id="title" class="form-control" placeholder="영화 제목을 입력하세요.">
@@ -68,7 +68,7 @@ export default {
       inputData.genres = this.genres
       
       axios({
-        method: 'GET',
+        method: 'POST',
         url: 'http://127.0.0.1:8000/api/v1/movies/create/',
         data: inputData,
         headers: {
