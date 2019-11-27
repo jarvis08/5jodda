@@ -1,16 +1,16 @@
 <template>
-  <div class="5jodda-movieinfo" >
-    <h2>영화 정보</h2>
-    
-    <h3>{{ movie.title }}</h3>
-    <img :src=movie.poster_url :alt="`${ movie.title }의 포스터`" class="card-img-top">
-    <h4>영화 정보</h4>
-    <p>{{ movie.description }}</p>
-    <p>genres</p>
-    <span v-for="genre in movie.genres" :key="genre.id" class="btn-sm btn-dark">{{ findGenre(genre) }}</span>
-    <p>like_users</p>
-    
+<v-layout>
+  <div class="5jodda-movieinfo white--text text-center d-flex justify-content-center">
+    <div class="col-6">
+      <h2>{{ movie.title }}</h2>
+      <div>
+        <span v-for="genre in movie.genres" :key="genre.id" class="btn-sm btn-dark ml-1">{{ findGenre(genre) }}</span>
+      </div>
+      <img :src=movie.poster_url :alt="`${ movie.title }의 포스터`" class="card-img-top col-6">
+      <p class="text-start">{{ movie.description }}</p>
+    </div>
   </div>
+  </v-layout>
 </template>
 
 <script>

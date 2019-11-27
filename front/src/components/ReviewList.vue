@@ -1,7 +1,7 @@
 <template>
-  <div class="5jodda-reviewlist">
+  <div class="5jodda-reviewlist white--text mt-5">
     <h2>리뷰 목록</h2>
-    <table class="table table-striped">
+    <table class="table table-striped white--text">
       <thead>
         <tr>
           <th scope="col">#</th>

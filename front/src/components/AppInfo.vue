@@ -1,6 +1,6 @@
 <template>
-  <div class="5jodda-AppInfo">
-    <h2>오지는 영화 추천</h2>
+  <div class="text-center">
+    <h2 style="color: #BDBDBD;">넷플릭스는 가라</h2>
   </div>
 </template>
 
