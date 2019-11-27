@@ -30,14 +30,14 @@ export default {
     }
   },
   methods: {
-  signup() {
-    axios.defaults.xsrfHeaderName = 'X-CSRFToken'
-    axios.defaults.xsrfCookieName = 'csrftoken'
-    axios.post('http://127.0.0.1:8000/api/v1/users/signup/', this.credentials)
-    .then(
-      router.push('/')
-    )
-  }
+    signup() {
+      axios.post('http://127.0.0.1:8000/rest-auth/registration/', this.credentials)
+      .then(res => {
+        this.$session.start()
+        this.$session.set('jwt', res.data.token)
+        router.push('/')
+      })
+    },
   },
 }
 </script>

@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
 from django.views.decorators.http import require_POST
 from .serializers import UserSerializer
+# import ipython
 
 # Create your views here.
 @api_view(['GET'])
@@ -31,11 +32,3 @@ def user_list(request):
         pass
     return Response(status=405)
  
-
-# @require_POST
-# def signup(request):
-#     if request.method == 'POST':
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return Response({'massage': 'complete'})
