@@ -1,14 +1,13 @@
 <template>
   <div class="5jodda-loginform">
-    <h2>Log-in</h2>
-      <div class="form-group">
-        <label for="id">ID</label>
-        <input v-model="credentials.username" type="text" id="id" class="form-control" placeholder="ID를 입력하세요.">
-        <br>
-        <label for="password">Password</label>
-        <input v-model="credentials.password" type="password" id="password" class="form-control" placeholder="비밀번호를 입력하세요.">
-      </div>
-    <button @click="login" class="btn btn-primary">Log-in</button>
+    <h2 class="text-white font-weight-bold mb-8">Log-in</h2>
+      <label for="signupId" class="text-white">ID</label>
+      <input v-model="credentials.username" type="text" id="signupId" class="form-control" placeholder="ID를 입력하세요.">
+      <br>
+      <label for="password" class="text-white">Password</label>
+      <input v-model="credentials.password" type="password" id="password" class="form-control" placeholder="비밀번호를 입력하세요.">
+    <v-btn @click="login" class="blue white--text mt-3">Go!</v-btn>
+    <!-- <button @click="login" class="btn btn-primary">Log-in</button> -->
   </div>
 </template>
 

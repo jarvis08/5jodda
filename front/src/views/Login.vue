@@ -1,8 +1,11 @@
 <template>
-  <div class="5jodda-login col-6">
+  <v-container col-4>
     <LoginForm />
-    <Signup class="mt-3"/>
-  </div>
+    <br>
+    <br>
+    <hr style="background-color: white;">
+    <Signup class="mt-12"/>
+  </v-container>
 </template>
 
 <script>
