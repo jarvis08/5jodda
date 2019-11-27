@@ -81,23 +81,21 @@ def create(request):
             else:
                 return Response({'massage': '권한이 없습니다.'})
     return Response({'massage': '작성실패'})
-'''
-@api_view(['POST'])
-def todo_create(request):
-    serializer = TodoSerializers(data=request.POST)
-    if serializer.is_valid():
-        serializer.save()
+
+
+@api_view(['GET',])
+def select_movie(request):
+    if request.method == 'GET':
+        if request.data.genres:
+            movies = set()
+            for genre_pk in request.data.genres:
+                genre = Genre.objects.get(pk=genre_pk)
+                movies = movies.intersection(genre.movies)
+            movies = list(movies)
+        else:
+            movies = Movie.objects.all()
+        serializer = MovieSerializer(movies, many=True)
         return Response(serializer.data)
-    return Response(status=400)
+    return Response({'massage': '작성실패'})
 
-
-@api_view(['GET'])
-def user_detail(request, pk):
-    User = get_user_model()
-    user = get_object_or_404(User, pk=pk)
-    if request.user != user:
-        return Response(status=404)
-
-    serializer = UserSerializers(user)
-    return Response(serializer.data)
-'''
+    
