@@ -4,7 +4,7 @@ from .serializers import MovieSerializer, ReviewSerializer, MovieDetailSerialize
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
-from IPython import embed
+
 
 # Create your views here.
 @api_view(['GET'])
