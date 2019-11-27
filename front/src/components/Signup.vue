@@ -1,19 +1,20 @@
 <template>
   <div class="5jodda-signup">
-    <h2>Sign-up</h2>
+    <h2 class="text-white font-weight-bold mb-8">Sign-up</h2>
     <div class="form-group">
-      <label for="id">ID</label>
-      <input v-model="credentials.username" type="text" id="id" class="form-control" placeholder="ID를 입력하세요.">
+      <label for="loginId" class="text-white">ID</label>
+      <input v-model="credentials.username" type="text" id="loginId" class="form-control" placeholder="ID를 입력하세요.">
       <br>
-      <label for="email">Email</label>
+      <label for="email" class="text-white">Email</label>
       <input v-model="credentials.email" type="text" id="email" class="form-control" placeholder="E-mail 주소를 입력하세요.">
       <br>
-      <label for="password">Password</label>
+      <label for="password" class="text-white">Password</label>
       <input v-model="credentials.password1" type="password" id="password1" class="form-control" placeholder="비밀번호를 입력하세요.">
       <br>
-      <label for="password">Password again</label>
+      <label for="password" class="text-white">Password again</label>
       <input v-model="credentials.password2" type="password" id="password2" class="form-control" placeholder="비밀번호를 한번 더 입력하세요.">
-      <button @click="signup" class="btn btn-primary">signup</button>
+      <!-- <button @click="signup" class="btn btn-primary">signup</button> -->
+      <v-btn @click="signup" class="green mt-3 white--text">Sign-up</v-btn>
     </div>
   </div>
 </template>
