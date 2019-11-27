@@ -49,7 +49,6 @@ export default {
         res.data.forEach(element => {
           this.genres.push(element.name)
         });
-        console.log(this.genres)
       })
     },
   },

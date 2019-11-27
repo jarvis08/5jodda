@@ -1,8 +1,8 @@
 <template>
   <div class="5jodda-movie">
     <MovieInfo :movie="movie"/>
-    <ReviewInput />
-    <ReviewList />
+    <ReviewInput :movieNum="movieNum"/>
+    <ReviewList :users="users" :reviewSet="movie.review_set"/>
   </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
       movieNum: 0,
       movie: [],
       genres: [],
+      users: [],
     }
   },
 
@@ -57,10 +58,24 @@ export default {
         });
       })
     },
+    getUsers() {
+      const token = this.$session.get('jwt')
+      const options = {
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      }
+      
+      axios.get('http://127.0.0.1:8000/api/v1/users/', options)
+      .then(res => {
+        this.users = res.data
+      })
+    },
   },
   mounted(){
     this.movieNum = this.$route.params.movieNum 
     this.getMovie()
+    this.getUsers()
   },
 }
 </script>

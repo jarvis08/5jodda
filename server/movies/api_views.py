@@ -4,7 +4,7 @@ from .serializers import MovieSerializer, ReviewSerializer, MovieDetailSerialize
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
-# from
+# from IPython import embed
 
 # Create your views here.
 @api_view(['GET'])
@@ -47,6 +47,7 @@ def movie_detail(request, movie_pk):
                 return Response({'massage': '관리자 권한으로 작성되었습니다.'})
             else:
                 return Response({'massage': '작성되었습니다.'})
+    Response({'massage': '작성실패'})
 
 
 @api_view(['PUT', 'DELETE',])
