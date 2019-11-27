@@ -95,3 +95,74 @@ C. 추후 담당 교수의 안내에 따라 추가적인 자료 제출이 요구
     - s: 유저 아이디, 이메일
     - s: 유저가 좋아한 영화 목록
     - s: 유저가 작성한 리뷰
+
+---
+
+### Signup
+
+[django-rest-auth](https://django-rest-auth.readthedocs.io/en/latest/installation.html)
+
+App 인스톨
+
+```bash
+$ pip install django-rest-auth
+$ pip install django-allauth
+```
+
+App 사용 설정 및 환경 설정
+
+```python
+# settings.py
+INSTALLED_APPS = (
+    ...,
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth'
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+    ...,
+)
+
+SITE_ID = 1
+# REST_USE_JWT를 설정하지 하면, 가입 신청의 response로 JWT를 돌려받음
+REST_USE_JWT=True
+```
+
+아래의 주석된 두 줄의 코드를 삭제하여, django의 key가 아닌 JWT를 반환하도록 설정
+
+```python
+# settings.py
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+```
+
+사용할 URL 설정
+
+```python
+# pjt_name/urls.py
+urlpatterns = [
+    ...,
+    path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
+]
+```
+
+```bash
+$ django manage.py migrate
+```
+
+
+
+
+

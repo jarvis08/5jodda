@@ -25,4 +25,6 @@ urlpatterns = [
     path('api-token-verify/', obtain_jwt_token),
     path('api/v1/movies/', include('movies.api_urls')),
     path('api/v1/users/', include('accounts.api_urls')),
+    path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
 ]
