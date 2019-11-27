@@ -25,19 +25,19 @@ export default {
     }
   },
   methods: {
-    // getMovies() {
-    //   const token = this.$session.get('jwt')
-    //   const options = {
-    //     headers: {
-    //       Authorization: 'JWT ' + token
-    //     }
-    //   }
+    getMovies() {
+      const token = this.$session.get('jwt')
+      const options = {
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      }
       
-    //   axios.get('http://127.0.0.1:8000/api/v1/movies/', options)
-    //   .then(res => {
-    //     this.movies = res.data
-    //   })
-    // },
+      axios.get('http://127.0.0.1:8000/api/v1/movies/', options)
+      .then(res => {
+        this.movies = res.data
+      })
+    },
     getGenres() {
       const token = this.$session.get('jwt')
       const options = {
