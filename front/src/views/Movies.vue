@@ -1,5 +1,6 @@
 <template>
   <div class="5jodda-movie">
+    <h1 class="white--text text-center m-5">오질걸?</h1>
     <MovieRec />
     <MovieList :movies="movies" />
   </div>
