@@ -13,7 +13,7 @@
         <tr>
           <th scope="row" class="grey--text">{{ user.pk }}</th>
           <td class="light-green--text">{{ user.username }}</td>
-          <td><v-btn class="deep-orange--text">delete</v-btn></td>
+          <td><v-btn @click="deleteUser(user.pk)" small dark class="deep-orange--text">delete</v-btn></td>
         </tr>
       </tbody>
     </table>
@@ -21,6 +21,9 @@
 </template>
 
 <script>
+import axios from 'axios'
+import router from '@/router'
+
 export default {
   name: 'UserList',
   props:{
@@ -28,6 +31,20 @@ export default {
       type: Array
     }
   },
+  methods: {
+    deleteUser(userPk) {
+      const token = this.$session.get('jwt')
+      const options = {
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      }
+      axios.post(`http://127.0.0.1:8000/api/v1/users/${ userPk }/delete/`, options)
+      .then(
+        router.push('/adminuser')
+      )
+    },
+  }
 }
 </script>
 

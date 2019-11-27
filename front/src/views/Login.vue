@@ -1,5 +1,5 @@
 <template>
-  <v-container text-center col-4>
+  <v-container col-4>
     <LoginForm />
     <br>
     <br>
