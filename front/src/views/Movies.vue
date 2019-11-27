@@ -20,22 +20,23 @@ export default {
     return {
       movies: [],
       genres: [],
+      selectGerne: [],
     }
   },
   methods: {
-    getMovies() {
-      const token = this.$session.get('jwt')
-      const options = {
-        headers: {
-          Authorization: 'JWT ' + token
-        }
-      }
+    // getMovies() {
+    //   const token = this.$session.get('jwt')
+    //   const options = {
+    //     headers: {
+    //       Authorization: 'JWT ' + token
+    //     }
+    //   }
       
-      axios.get('http://127.0.0.1:8000/api/v1/movies/', options)
-      .then(res => {
-        this.movies = res.data
-      })
-    },
+    //   axios.get('http://127.0.0.1:8000/api/v1/movies/', options)
+    //   .then(res => {
+    //     this.movies = res.data
+    //   })
+    // },
     getGenres() {
       const token = this.$session.get('jwt')
       const options = {
@@ -49,6 +50,21 @@ export default {
         res.data.forEach(element => {
           this.genres.push(element.name)
         });
+      })
+    },
+    selectMovies() {
+      const token = this.$session.get('jwt')
+
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/api/v1/movies/select_movie/',
+        data: this.selectGerne,
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      })
+      .then(res => {
+        this.movies = res.data
       })
     },
   },
