@@ -71,7 +71,7 @@ def review_detail(request, movie_pk, review_pk):
 
 
 @api_view(['POST',])
-def creates(request, movie_pk):
+def create(request, movie_pk):
     if request.method == 'POST':
         serializer = MovieSerializer(data=request.data)
         if serializer.is_valid():
