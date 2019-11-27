@@ -70,6 +70,17 @@ def review_detail(request, movie_pk, review_pk):
     return Response(status=405)
 
 
+@api_view(['POST',])
+def creates(request, movie_pk):
+    if request.method == 'POST':
+        serializer = MovieSerializer(data=request.data)
+        if serializer.is_valid():
+            if request.user.is_superuser:
+                serializer.save()
+                return Response({'massage': '관리자 권한으로 작성되었습니다.'})
+            else:
+                return Response({'massage': '권한이 없습니다.'})
+    Response({'massage': '작성실패'})
 '''
 @api_view(['POST'])
 def todo_create(request):
