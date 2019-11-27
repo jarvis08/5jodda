@@ -98,6 +98,10 @@ C. 추후 담당 교수의 안내에 따라 추가적인 자료 제출이 요구
 
 ---
 
+![erd](./assets/erd.png)
+
+---
+
 ### Signup
 
 [django-rest-auth](https://django-rest-auth.readthedocs.io/en/latest/installation.html)
