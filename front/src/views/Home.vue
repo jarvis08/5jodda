@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-center white--text mt-5">이 영화 오조따!</h1>
+    <h1 class="text-center white--text m-5">이 영화 오조따!</h1>
     <AppInfo />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="5jodda-signup">
-    <h2 class="text-white font-weight-bold mb-8">Sign-up</h2>
+    <h2 class="text-white font-weight-bold m-5">Sign-up</h2>
     <div class="form-group">
       <label for="loginId" class="text-white">ID</label>
       <input v-model="credentials.username" type="text" id="loginId" class="form-control" placeholder="ID를 입력하세요.">
