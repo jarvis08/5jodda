@@ -1,10 +1,12 @@
 <template>
-  <div class="5jodda-reviewinput d-inline-block white--text">
-    <h2>리뷰 남기기</h2>
-    <input type="text" id="review-content" v-model="reviewContent" class="form-control" placeholder="내용">
-    <input type="number" id="review-score" v-model="reviewScore" class="form-control d-inline mt-1" placeholder="점수">
-    <v-btn @click="postReview" class="ml-5">등록</v-btn>
-  </div>
+  <v-layout justify-center align-center>
+    <div class="5jodda-reviewinput d-inline-block white--text">
+      <h2>리뷰 남기기</h2>
+      <input type="text" id="review-content" v-model="reviewContent" class="form-control" placeholder="내용">
+      <input type="number" id="review-score" v-model="reviewScore" class="form-control d-inline mt-1" placeholder="점수">
+      <v-btn @click="postReview" class="ml-5">등록</v-btn>
+    </div>
+  </v-layout>
 </template>
 
 <script>
