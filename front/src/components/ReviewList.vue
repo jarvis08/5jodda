@@ -6,23 +6,15 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">content</th>
-            <th scope="col">작성자</th>
-            <th scope="col">delete</th>
+            <th scope="col">내용</th>
+            <th scope="col">삭제</th>
           </tr>
         </thead>
         <tbody v-for="(review, index) in reviewSet" :key="review.pk">
-          <!-- <tr>
-            <th scope="row"></th>
-            <td>{{ review.contnet }}</td>
-            <td><button>{{ review.user.username }}</button></td>
-            <td><button>update</button></td>
-          </tr> -->
           <tr>
             <th scope="row">{{ index + 1 }}</th>
             <td>{{ review.content }}</td>
-            <td>{{ review.user_id }}</td>
-            <td><button @click="deleteReview(review.pk)">delete</button></td>
+            <td><v-btn @click="deleteReview(review.pk)" small dark class="deep-orange--text">삭제</v-btn></td>
           </tr>
         </tbody>
       </table>
