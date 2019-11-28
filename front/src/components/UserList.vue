@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="white--text py-12">
+    <!-- <div class="white--text py-12">
       <label for="userName" class="title">사용자이름</label>
       <input class="form-control" v-model="targetUser.username">
       <label for="userEmail" class="title mt-6">이메일</label>
       <input class="form-control" v-model="targetUser.email">
-    </div>
+    </div> -->
     <div class="5jodda-userlist text-center">
       <h2 class="m-5 white--text">유저 목록</h2>
       <table class="table table-striped">
@@ -63,16 +63,7 @@ export default {
       )
     },
     getUser(target) {
-      const token = this.$session.get('jwt')
-      const options = {
-        headers: {
-          Authorization: 'JWT ' + token
-        }
-      }
-      axios.get(`http://127.0.0.1:8000/api/v1/users/${ target }/`, options)
-      .then(res => {
-        this.targetUser = res.data
-      })
+      router.push(`searchuser/${ target }`)
     },
   }
 }

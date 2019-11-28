@@ -50,14 +50,15 @@ export default {
   methods: {
     deleteReview(reviewNum) {
       const token = this.$session.get('jwt')
+      const temp = Number(this.movieNum)
       const options = {
         headers: {
           Authorization: 'JWT ' + token
         }
       }
-      axios.delete(`http://127.0.0.1:8000/api/v1/movies/${ this.movieNum }/${ reviewNum }/`, options)
+      axios.delete(`http://127.0.0.1:8000/api/v1/movies/${ temp }/${ reviewNum }/`, options)
       .then(
-        router.push('/')
+        router.push(`/movie/${ temp }`)
       )
     },
   },
