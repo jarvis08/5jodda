@@ -8,6 +8,7 @@ import Movie from '../views/Movie.vue'
 import User from '../views/User.vue'
 import AdminMovie from '../views/AdminMovie.vue'
 import AdminUser from '../views/AdminUser.vue'
+import SearchUser from '../views/SearchUser.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const routes = [
     path: '/user',
     name: 'user',
     component: User
+  },
+  {
+    path: '/searchuser/:userNum',
+    name: 'searchuser',
+    component: SearchUser
   },
   {
     path: '/adminmovie',
