@@ -53,7 +53,7 @@ export default {
           imageUrl: ''
         },
         s2: {
-          content: '제가 골라드릴게요.',
+          content: '제가 그럼 영화는..',
           imageUrl: ''
         },
         s3: {
@@ -61,11 +61,6 @@ export default {
           imageUrl: "https://pbs.twimg.com/profile_images/378800000720268704/ce1ec51825a576fc51753fe4f59e6bf8_400x400.jpeg",
         },
       },
-      // slides: [
-      //   '좋아하는 장르만 선택하세요.',
-      //   '제가 골라드릴게요.',
-      //   '골라는 드릴게.',
-      // ],
     }
   },
 }
