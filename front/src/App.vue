@@ -84,4 +84,7 @@ export default {
 </script>
 
 <style>
+a.hoverColor:hover {
+  color: white;
+}
 </style>
