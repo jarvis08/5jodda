@@ -4,6 +4,7 @@ from .serializers import MovieSerializer, ReviewSerializer, MovieDetailSerialize
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
+from IPython import embed
 
 
 # Create your views here.
@@ -84,16 +85,11 @@ def create(request):
 
 
 @api_view(['GET',])
-def select_movie(request):
+def select_movie(request, genreNum):
+    print(genreNum)
     if request.method == 'GET':
-        if request.data.genres:
-            movies = set()
-            for genre_pk in request.data.genres:
-                genre = Genre.objects.get(pk=genre_pk)
-                movies = movies.intersection(genre.movies)
-            movies = list(movies)
-        else:
-            movies = Movie.objects.all()
+        genre = Genre.objects.get(pk=genreNum)
+        movies = genre.movies
         serializer = MovieSerializer(movies, many=True)
         return Response(serializer.data)
     return Response({'massage': '작성실패'})

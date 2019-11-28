@@ -56,10 +56,10 @@
         <v-btn text v-if="this.$session.get('jwt')">
           <router-link to="/logout" class="text-white">Logout</router-link>
         </v-btn>
-        <v-btn text>
+        <v-btn text v-if="this.checker">
           <router-link to="/adminmovie" class="text-primary">Admin-Movie</router-link>
         </v-btn>
-        <v-btn text>
+        <v-btn text v-if="this.checker">
           <router-link to="/adminuser" class="text-primary">Admin-User</router-link>
         </v-btn>
     </v-app-bar>
@@ -73,7 +73,35 @@
 </template>
 
 <script>
+import axios from 'axios'
 
+export default {
+  name: 'app',
+  data() {
+    return {
+      checker: false,
+    }
+  },
+  methods: {
+    userChecker() {
+      const token = this.$session.get('jwt')
+      const options = {
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      }
+      
+      axios.get('http://127.0.0.1:8000/api/v1/users/checker/', options)
+      .then(res => {
+        this.checker = res.data
+        console.log(this.checker)
+      })
+    },
+  },
+  mounted() {
+    this.userChecker()
+  }
+}
 </script>
 
 <style>
