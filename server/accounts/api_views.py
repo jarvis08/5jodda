@@ -49,7 +49,6 @@ def user_delete(request, user_pk):
         User = get_user_model()
         target_user = User.objects.get(pk=user_pk)
         target_user.delete()
-        target_user.is_valid()
         return Response(status=200)
     elif request.method == 'GET':
         pass

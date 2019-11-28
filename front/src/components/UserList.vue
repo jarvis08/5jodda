@@ -54,7 +54,7 @@ export default {
           Authorization: 'JWT ' + token
         }
       }
-      axios.post(`http://127.0.0.1:8000/api/v1/users/${ userPk }/delete/`, options)
+      axios.post(`http://127.0.0.1:8000/api/v1/users/${ userPk }/delete/`, {}, options)
       .then(
         router.push('/adminuser')
       )
