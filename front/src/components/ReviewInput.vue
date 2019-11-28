@@ -40,6 +40,8 @@ export default {
           score: this.reviewScore,
         }
       }
+      ).then(
+        this.$emit('inputReview')
       )
     },
   }

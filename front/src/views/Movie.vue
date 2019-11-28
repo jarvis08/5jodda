@@ -1,7 +1,7 @@
 <template>
   <div class="5jodda-movie">
     <MovieInfo :movie="movie"/>
-    <ReviewInput :movieNum="movieNum"/>
+    <ReviewInput @inputReview="getMovie" :movieNum="movieNum"/>
     <ReviewList :users="users" :reviewSet="movie.review_set"/>
   </div>
 </template>
