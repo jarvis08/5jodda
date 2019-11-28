@@ -58,6 +58,9 @@ export default {
       .then(
         router.push('/adminuser')
       )
+      .catch(
+        router.push('/adminuser')
+      )
     },
     getUser(target) {
       const token = this.$session.get('jwt')
@@ -66,7 +69,6 @@ export default {
           Authorization: 'JWT ' + token
         }
       }
-      
       axios.get(`http://127.0.0.1:8000/api/v1/users/${ target }/`, options)
       .then(res => {
         this.targetUser = res.data

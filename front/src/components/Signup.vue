@@ -13,7 +13,6 @@
       <br>
       <label for="password" class="text-white">Password again</label>
       <input v-model="credentials.password2" type="password" id="password2" class="form-control" placeholder="비밀번호를 한번 더 입력하세요.">
-      <!-- <button @click="signup" class="btn btn-primary">signup</button> -->
       <v-btn @click="signup" class="green mt-3 white--text">Sign-up</v-btn>
     </div>
   </div>
