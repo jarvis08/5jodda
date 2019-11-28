@@ -31,7 +31,7 @@ def genre_index(request):
     return Response(status=405)
  
 
-@api_view(['GET', 'POST',])
+@api_view(['GET', 'POST', 'DELETE',])
 def movie_detail(request, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
     
@@ -47,6 +47,12 @@ def movie_detail(request, movie_pk):
                 return Response({'massage': '관리자 권한으로 작성되었습니다.'})
             else:
                 return Response({'massage': '작성되었습니다.'})
+    elif request.method == 'DELETE':
+        movie.delete()
+        if request.user.is_superuser:
+            return Response({'massage': '삭제되었습니다.'})
+        else:
+            return Response({'massage': '권한이 없습니다.'})
     Response({'massage': '작성실패'})
 
 
@@ -64,7 +70,8 @@ def review_detail(request, movie_pk, review_pk):
             return Response({'status':405, 'massage': '잘못된 접근입니다.'})
 
     elif request.method == 'DELETE':
-        review.delete()
+        if request.user.id == review.user_id or request.user.is_superuser:
+            review.delete()
         return Response({'massage': '삭제되었습니다.'})
     
     return Response(status=405)

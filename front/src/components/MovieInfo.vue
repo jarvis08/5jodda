@@ -8,7 +8,7 @@
       </div>
       <img :src=movie.poster_url :alt="`${ movie.title }의 포스터`" class="card-img-top col-6">
       <p class="text-start">{{ movie.description }}</p>
-      <button>삭제</button>
+      <button @click="deleteMovie">삭제</button>
       <button>수정</button>
     </div>
   </div>
@@ -16,7 +16,9 @@
 </template>
 
 <script>
+import router from '@/router'
 import axios from 'axios'
+
 export default {
   name: 'MovieInfo',
   data() {
@@ -30,6 +32,18 @@ export default {
     },
   },
   methods: {
+    deleteMovie() {
+      const token = this.$session.get('jwt')
+      const options = {
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      }
+      axios.delete(`http://127.0.0.1:8000/api/v1/movies/${ this.movie.pk }/`, options)
+      .then(
+        router.push('/')
+      )
+    },
     findGenre(genreNum) {
 
       const genreName = this.genres2[genreNum-1]

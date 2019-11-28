@@ -13,14 +13,12 @@
 </template>
 
 <script>
-import MovieRec from '@/components/MovieRec'
 import MovieList from '@/components/MovieList'
 import axios from 'axios'
 
 export default {
   name: 'Movies',
   components: {
-    MovieRec,
     MovieList,
   },
   data() {
