@@ -53,7 +53,7 @@ export default {
           imageUrl: ''
         },
         s2: {
-          content: '제가 그럼 영화는..',
+          content: '제가 그럼 영화를..',
           imageUrl: ''
         },
         s3: {
