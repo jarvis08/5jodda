@@ -1,13 +1,35 @@
 <template>
-  <v-container col-6 white--text>
-    <h2 class="text-center my-12">My Page</h2>
-    <div>
-      <label for="userName" class="title mt-12">사용자이름</label>
-      <p class="form-control">{{ user.username }}</p>
-      <label for="userEmail" class="title mt-12">이메일</label>
-      <p class="form-control">{{ user.email }}</p>
-    </div>
-  </v-container>
+  <div>
+    <h2>My Page</h2>
+    <p>name {{ user.username }}</p>
+    <p>email {{ user.email }}</p>
+    <br>
+    <h4>리뷰 목록</h4>
+    <table class="table table-striped white--text">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">content</th>
+          <th scope="col">작성자</th>
+          <th scope="col">delete</th>
+        </tr>
+      </thead>
+      <tbody v-for="(review, index) in user.review_set" :key="review.pk">
+        <!-- <tr>
+          <th scope="row"></th>
+          <td>{{ review.contnet }}</td>
+          <td><button>{{ review.user.username }}</button></td>
+          <td><button>update</button></td>
+        </tr> -->
+        <tr>
+          <th scope="row">{{ index + 1 }}</th>
+          <td>{{ review.content }}</td>
+          <td>{{ review.user_id }}</td>
+          <td><button>delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </template>
 
