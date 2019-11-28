@@ -32,3 +32,12 @@ def user_list(request):
         pass
     return Response(status=405)
  
+
+@api_view(['GET'])
+def checker(request):
+    if request.user.is_superuser:
+        return Response(True)
+    else:
+        return Response(False)
+    return Response(status=405)
+ 

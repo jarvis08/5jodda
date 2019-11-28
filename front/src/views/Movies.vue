@@ -2,7 +2,13 @@
   <div class="5jodda-movie">
     <h1 class="white--text text-center m-5">오질걸?</h1>
     <MovieRec />
-    <MovieList :movies="movies" />
+    <label for="genres" class="text-white mt-3 d-block">장르를 선택하세요.</label>
+    <span v-for="genre in genres2" :key="genre.pk" class="text-white d-inline mr-3">
+      <input type="checkbox" :id="genre.name" :value="genre.pk" v-model="selectGenres">
+      <label :for="genre.name">{{ genre.name }}</label>
+    </span>
+    <button @click="selectMovie(selectGenres)">검색</button>
+    <MovieList :selectGenres="selectGenres" :movies="movies" />
   </div>
 </template>
 
@@ -21,23 +27,24 @@ export default {
     return {
       movies: [],
       genres: [],
-      selectGerne: [],
+      genres2: [],
+      selectGenres: [],
     }
   },
   methods: {
-    // getMovies() {
-    //   const token = this.$session.get('jwt')
-    //   const options = {
-    //     headers: {
-    //       Authorization: 'JWT ' + token
-    //     }
-    //   }
+    getMovies() {
+      const token = this.$session.get('jwt')
+      const options = {
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      }
       
-    //   axios.get('http://127.0.0.1:8000/api/v1/movies/', options)
-    //   .then(res => {
-    //     this.movies = res.data
-    //   })
-    // },
+      axios.get('http://127.0.0.1:8000/api/v1/movies/', options)
+      .then(res => {
+        this.movies = res.data
+      })
+    },
     getGenres() {
       const token = this.$session.get('jwt')
       const options = {
@@ -48,22 +55,21 @@ export default {
       
       axios.get('http://127.0.0.1:8000/api/v1/movies/genres/', options)
       .then(res => {
+        this.genres2 = res.data
         res.data.forEach(element => {
           this.genres.push(element.name)
         });
       })
     },
-    selectMovies() {
+    selectMovie(genreNum) {
       const token = this.$session.get('jwt')
-
-      axios({
-        method: 'get',
-        url: 'http://127.0.0.1:8000/api/v1/movies/select_movie/',
-        data: this.selectGerne,
+      const options = {
         headers: {
           Authorization: 'JWT ' + token
         }
-      })
+      }
+      
+      axios.get(`http://127.0.0.1:8000/api/v1/movies/select_genres/${genreNum}/`, options)
       .then(res => {
         this.movies = res.data
       })
@@ -72,7 +78,7 @@ export default {
   mounted() {
     this.getGenres()
     this.getMovies()
-  }
+  },
 }
 </script>
 

@@ -9,5 +9,6 @@ urlpatterns = [
     path('create/', api_views.create, name='create'),
     path('<int:movie_pk>/', api_views.movie_detail, name='movie'),
     path('<int:movie_pk>/<int:review_pk>/', api_views.review_detail, name='review'),
-    path('select_movie/', api_views.select_movie, name='review'),
+    path('select_genres/<int:genreNum>/', api_views.select_movie, name='review'),
+    path('select_genres/', api_views.movie_index, name='index'),
 ]

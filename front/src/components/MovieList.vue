@@ -39,6 +39,9 @@ export default {
     genres: {
       type: Array,
     },
+    selectGenres: {
+      type: Array,
+    }
   },
   methods: {
     findGenre(genreNum) {
