@@ -11,17 +11,15 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">content</th>
-          <th scope="col">작성자</th>
-          <th scope="col">delete</th>
+          <th scope="col">내용</th>
+          <th scope="col">삭제</th>
         </tr>
       </thead>
       <tbody v-for="(review, index) in user.review_set" :key="review.pk">
         <tr>
           <th scope="row">{{ index + 1 }}</th>
           <td>{{ review.content }}</td>
-          <td>{{ review.user_id }}</td>
-          <td><button>delete</button></td>
+          <td><v-btn small dark class="deep-orange--text">삭제</v-btn></td>
         </tr>
       </tbody>
     </table>

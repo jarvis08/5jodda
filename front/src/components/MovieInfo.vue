@@ -8,8 +8,8 @@
       </div>
       <img :src=movie.poster_url :alt="`${ movie.title }의 포스터`" class="card-img-top col-6">
       <p class="text-start">{{ movie.description }}</p>
-      <button @click="deleteMovie">삭제</button>
-      <button>수정</button>
+      <v-btn @click="deleteMovie" small dark class="deep-orange--text">영화 삭제</v-btn>
+      <v-btn small dark class="ml-1 green--text">영화 수정</v-btn>
     </div>
   </div>
   </v-layout>
