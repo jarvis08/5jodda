@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <h2>My Page</h2>
-    <p>name {{ user.username }}</p>
-    <p>email {{ user.email }}</p>
+  <v-container col-4 class="white--text justify-center mt-12">
+    <h2 class="mb-3 text-center">My Page</h2>
+    <label for="userName">사용자 이름</label>
+    <p class="form-control">{{ user.username }}</p>
+    <label for="email">이메일 주소</label>
+    <p class="form-control">{{ user.email }}</p>
     <br>
-    <h4>리뷰 목록</h4>
-    <table class="table table-striped white--text">
+    <h4 class="mt-6">리뷰 목록</h4>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -15,12 +17,6 @@
         </tr>
       </thead>
       <tbody v-for="(review, index) in user.review_set" :key="review.pk">
-        <!-- <tr>
-          <th scope="row"></th>
-          <td>{{ review.contnet }}</td>
-          <td><button>{{ review.user.username }}</button></td>
-          <td><button>update</button></td>
-        </tr> -->
         <tr>
           <th scope="row">{{ index + 1 }}</th>
           <td>{{ review.content }}</td>
@@ -29,8 +25,7 @@
         </tr>
       </tbody>
     </table>
-  </div>
-
+  </v-container>
 </template>
 
 <script>
