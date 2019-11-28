@@ -41,7 +41,7 @@ export default {
       }
       axios.delete(`http://127.0.0.1:8000/api/v1/movies/${ this.movie.pk }/`, options)
       .then(
-        router.push('/')
+        router.push('/movies')
       )
     },
     findGenre(genreNum) {
