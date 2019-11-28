@@ -22,7 +22,7 @@
             <th scope="row">{{ index + 1 }}</th>
             <td>{{ review.content }}</td>
             <td>{{ review.user_id }}</td>
-            <td><button>delete</button></td>
+            <td><button @click="deleteReview(review.pk)">delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -31,6 +31,9 @@
 </template>
 
 <script>
+import router from '@/router'
+import axios from 'axios'
+
 export default {
   name: 'ReviewList',
   props: {
@@ -39,6 +42,23 @@ export default {
     },
     reviewSet: {
       type: Array,
+    },
+    movieNum: {
+      type: Number,
+    },
+  },
+  methods: {
+    deleteReview(reviewNum) {
+      const token = this.$session.get('jwt')
+      const options = {
+        headers: {
+          Authorization: 'JWT ' + token
+        }
+      }
+      axios.delete(`http://127.0.0.1:8000/api/v1/movies/${ this.movieNum }/${ reviewNum }/`, options)
+      .then(
+        router.push('/')
+      )
     },
   },
 }

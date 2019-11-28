@@ -2,7 +2,7 @@
   <div class="5jodda-movie">
     <MovieInfo :movie="movie"/>
     <ReviewInput @inputReview="getMovie" :movieNum="movieNum"/>
-    <ReviewList :users="users" :reviewSet="movie.review_set"/>
+    <ReviewList :movieNum="movieNum" :users="users" :reviewSet="movie.review_set"/>
   </div>
 </template>
 
