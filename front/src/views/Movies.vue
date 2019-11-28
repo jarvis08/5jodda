@@ -7,7 +7,7 @@
       <input type="checkbox" :id="genre.name" :value="genre.pk" v-model="selectGenres">
       <label :for="genre.name">{{ genre.name }}</label>
     </span>
-    <button @click="selectMovie(selectGenres)">검색</button>
+    <v-btn @click="selectMovie(selectGenres)" class="green white--text mt-3" small>선택</v-btn>
     <MovieList :selectGenres="selectGenres" :movies="movies" />
   </div>
 </template>

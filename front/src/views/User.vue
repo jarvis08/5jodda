@@ -1,9 +1,13 @@
 <template>
-  <div>
-    <h2>My Page</h2>
-    <p>name {{ user.username }}</p>
-    <p>email {{ user.email }}</p>
-  </div>
+  <v-container col-6 white--text>
+    <h2 class="text-center my-12">My Page</h2>
+    <div>
+      <label for="userName" class="title mt-12">사용자이름</label>
+      <p class="form-control">{{ user.username }}</p>
+      <label for="userEmail" class="title mt-12">이메일</label>
+      <p class="form-control">{{ user.email }}</p>
+    </div>
+  </v-container>
 
 </template>
 
@@ -30,7 +34,6 @@ export default {
       axios.get(`http://127.0.0.1:8000/api/v1/users/${ user_id }/`, options)
       .then(res => {
         this.user = res.data
-        console.log(this.user)
       })
     },
   },

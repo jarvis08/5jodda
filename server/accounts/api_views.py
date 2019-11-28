@@ -41,10 +41,15 @@ def checker(request):
 
 @api_view(['POST'])
 def user_delete(request, user_pk):
-    User = get_user_model()
-    user = User.objects.get(pk=user_pk)
+    if request.user.is_superuser:
+        pass
+    else:
+        return Response(status=401)
     if request.method == 'POST':
-        user.is_active = False
+        User = get_user_model()
+        target_user = User.objects.get(pk=user_pk)
+        target_user.delete()
+        target_user.is_valid()
         return Response(status=200)
     elif request.method == 'GET':
         pass
