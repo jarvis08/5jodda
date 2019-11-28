@@ -1,6 +1,6 @@
 <template>
   <div class="5jodda-movie">
-    <h1 class="white--text text-center m-5">오질걸?</h1>
+    <h1 class="white--text text-center m-5">영화 검색</h1>
     <MovieRec />
     <label for="genres" class="text-white mt-3 d-block">장르를 선택하세요.</label>
     <span v-for="genre in genres2" :key="genre.pk" class="text-white d-inline mr-3">

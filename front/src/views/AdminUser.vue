@@ -26,7 +26,6 @@ export default {
           Authorization: 'JWT ' + token
         }
       }
-      
       axios.get('http://127.0.0.1:8000/api/v1/users/', options)
       .then(res => {
         this.users = res.data
