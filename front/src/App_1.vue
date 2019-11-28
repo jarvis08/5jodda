@@ -16,35 +16,7 @@
 </template>
 
 <script>
-import axios from 'axios'
 
-export default {
-  name: 'app',
-  data() {
-    return {
-      checker: false,
-    }
-  },
-  methods: {
-    userChecker() {
-      const token = this.$session.get('jwt')
-      const options = {
-        headers: {
-          Authorization: 'JWT ' + token
-        }
-      }
-      
-      axios.get('http://127.0.0.1:8000/api/v1/users/checker/', options)
-      .then(res => {
-        this.checker = res.data
-        console.log(checker)
-      })
-    },
-  },
-  mounted() {
-    this.userChecker()
-  }
-}
 
 </script>
 
