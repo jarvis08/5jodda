@@ -58,7 +58,8 @@ export default {
         },
         s3: {
           content: '골라는 드릴게.',
-          imageUrl: "https://pbs.twimg.com/profile_images/378800000720268704/ce1ec51825a576fc51753fe4f59e6bf8_400x400.jpeg",
+          imageUrl: "http://img1.daumcdn.net/thumb/R720x0/?fname=http://cfile18.uf.daum.net/image/2652084152B9324A042529",
+          // imageUrl: "https://pbs.twimg.com/profile_images/378800000720268704/ce1ec51825a576fc51753fe4f59e6bf8_400x400.jpeg",
         },
       },
     }
