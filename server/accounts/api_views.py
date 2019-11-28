@@ -29,7 +29,6 @@ def user_list(request):
     elif request.method == 'POST':
         pass
     return Response(status=405)
-<<<<<<< HEAD
  
 
 @api_view(['GET'])
@@ -38,7 +37,6 @@ def checker(request):
         return Response(True)
     else:
         return Response(False)
-=======
 
 
 @api_view(['POST'])
@@ -50,6 +48,5 @@ def user_delete(request, user_pk):
         return Response(status=200)
     elif request.method == 'GET':
         pass
->>>>>>> 8a680164a32f9b43bdbcf8d5f5163b1d8aea481f
     return Response(status=405)
  
