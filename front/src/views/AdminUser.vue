@@ -1,7 +1,7 @@
 <template>
-  <div class="5jodda-User">
+  <v-container col-4>
     <UserList :users="users"/>
-  </div>
+  </v-container>
 </template>
 
 <script>

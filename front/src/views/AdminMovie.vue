@@ -1,7 +1,7 @@
 <template>
-  <div class="5jodda-adminmovie">
+  <v-container col-4>
     <MovieInput />
-  </div>
+  </v-container>
 </template>
 
 <script>
