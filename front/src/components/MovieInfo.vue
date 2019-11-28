@@ -1,5 +1,4 @@
 <template>
-<v-layout>
   <div class="5jodda-movieinfo white--text text-center d-flex justify-content-center">
     <div class="col-6">
       <h2>{{ movie.title }}</h2>
@@ -12,7 +11,6 @@
       <v-btn small dark class="ml-1 green--text">영화 수정</v-btn>
     </div>
   </div>
-  </v-layout>
 </template>
 
 <script>
