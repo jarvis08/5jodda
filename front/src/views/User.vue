@@ -7,7 +7,7 @@
     <p class="form-control">{{ user.email }}</p>
     <br>
     <h4 class="mt-6">리뷰 목록</h4>
-    <table class="table table-striped">
+    <table class="table table-striped white--text">
       <thead>
         <tr>
           <th scope="col">#</th>
