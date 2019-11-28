@@ -56,6 +56,9 @@
         <v-btn text v-if="this.$session.get('jwt')">
           <router-link to="/logout" class="text-white">Logout</router-link>
         </v-btn>
+        <v-btn text>
+          <router-link to="/user" class="text-white">MyPage</router-link>
+        </v-btn>
         <v-btn text v-if="this.checker">
           <router-link to="/adminmovie" class="text-primary">Admin-Movie</router-link>
         </v-btn>
