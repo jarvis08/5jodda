@@ -134,3 +134,8 @@ dmypy.json
 !.vscode/extensions.json
 
 # End of https://www.gitignore.io/api/code
+*.pyc
+db.sqlite3
+myvenv
+__pycache__
+local_settings.py
